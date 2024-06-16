@@ -17,4 +17,3 @@ export const initMongoConnection = async () => {
     throw e;
   }
 };
-initMongoConnection().catch(console.error);
