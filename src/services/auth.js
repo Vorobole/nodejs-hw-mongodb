@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import createHttpError from 'http-errors';
 import jwt from 'jsonwebtoken';
 import handlebars from 'handlebars';
@@ -144,9 +145,7 @@ export const resetPassword = async (payload) => {
   try {
     entries = jwt.verify(payload.token, env(SMTP.JWT_SECRET));
   } catch (err) {
-    if (err instanceof Error)
-      throw createHttpError(401, 'Token is expired or invalid.');
-    throw err;
+    throw createHttpError(401, 'Token is expired or invalid.');
   }
 
   const user = await User.findOne({
